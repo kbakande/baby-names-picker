@@ -41,11 +41,16 @@
   width: 60vw;
   border: palevioletred 3px solid;
   margin: 10vh auto;
-  padding: 10vh 2vw;
+  padding: 5vh 2vw;
   border-radius: 3%;
   text-align: center;
 }
 
+.search-bar {
+  margin-bottom: 0.6vh;
+  height: 5vh;
+  font-size: 3em;
+}
 .name-list {
   display: inline-block;
   border-radius: 15%;
@@ -61,3 +66,13 @@
 .girls {
   background-color: turquoise;
 }
+
+hr {
+  width: 60%;
+  height: 1px;
+  margin: 30px auto 30px;
+  background-color:#666;
+  border: 0 none;
+  opacity: 0.5;
+}
+
