@@ -11,10 +11,17 @@ const ListName = () => {
     return (
         <div className="name-container">
             {babyNames.map((babyName, index) => {
+                console.log(babyName.sex === "m")
+                if (babyName.sex === "m") {
+                    return (
+                        <p className="name-list boys"> {babyName.name} </p>
+                    )
+                } else {
+                    return (
+                        <p className="name-list girls"> {babyName.name} </p>
+                    )
+                }
 
-                return (
-                    <p className="name-list"> {babyName.name} </p>
-                )
 
             })}
         </div >
