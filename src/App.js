@@ -4,7 +4,7 @@ import { ListName } from './components/BabyNames'
 
 function App() {
   return (
-    <div >
+    <div className="App">
       <ListName />
     </div>
   );
