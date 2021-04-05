@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.name-container {
+  width: 60vw;
+  border: palevioletred 3px solid;
+  margin: 10vh auto;
+  padding: 10vh 2vw;
+}
+
+.name-list {
+  display: inline-block;
+  border-radius: 5%;
+  background-color: pink ;
+  margin: 0.2vh;
+  padding: 1vh;
+  font-size: large;
+}
