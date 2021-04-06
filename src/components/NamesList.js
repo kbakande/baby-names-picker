@@ -1,18 +1,22 @@
 
 const NamesList = props => {
-    const babyNames = props.babyNames;
+    const babyNames = props.babyNames.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));;
     return (
-        babyNames.map((babyName, index) => {
-            if (babyName.sex === "m") {
-                return (
-                    <p className="name-list boys" key={index} onClick={props.favFunc}> {babyName.name}  </p>
-                )
-            } else {
-                return (
-                    <p className="name-list girls" key={index} onClick={props.favFunc}> {babyName.name}</p>
-                )
-            }
-        })
+
+        <div>
+            {babyNames.map((babyName, index) => {
+                if (babyName.sex === "m") {
+                    return (
+                        <p className="name-list boys" key={index} onClick={props.favFunc}> {babyName.name}  </p>
+                    )
+                } else {
+                    return (
+                        <p className="name-list girls" key={index} onClick={props.favFunc}> {babyName.name}</p>
+                    )
+                }
+            })}
+
+        </div>
 
     )
 }
