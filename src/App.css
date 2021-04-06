@@ -42,7 +42,7 @@
   border: palevioletred 3px solid;
   margin: 10vh auto;
   padding: 5vh 2vw;
-  border-radius: 3%;
+  border-radius: 1%;
   text-align: center;
 }
 
@@ -50,6 +50,7 @@
   margin-bottom: 0.6vh;
   font-size: 2vw;
 }
+
 .name-list {
   display: inline-block;
   border-radius: 10%;
@@ -75,3 +76,13 @@ hr {
   opacity: 0.5;
 }
 
+.favourites-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:left;
+}
+
+.favourites-list {
+  display: inline-block;
+
+}
