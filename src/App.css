@@ -84,5 +84,6 @@ hr {
 
 .favourites-list {
   display: inline-block;
+  font-size: 2vw;
 
 }
