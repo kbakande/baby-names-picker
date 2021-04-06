@@ -1,7 +1,7 @@
-const SearchBar = () => {
+const SearchBar = (props) => {
 
     return (
-        <input type="input" id="searchInput" placeholder="Search for a name..." className="search-bar"></input>
+        <input onChange={props.search} type="input" id="searchInput" placeholder="Search for a name..." className="search-bar"></input>
     )
 
 }
