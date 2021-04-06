@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NamesList from './NamesList'
 import SearchBar from './SearchBar'
 import HorizontalLine from './HorizontalLine'
+import Favorites from './Favorites'
 import babyNames from '../babyNames.json';
 
 
@@ -19,7 +20,7 @@ const ListName = () => {
 
         if (inputSearch) {
             const searchNames = babyNames.filter((babyName) => {
-                return babyName.name.toLowerCase().includes(inputSearch)
+                return babyName.name.toLowerCase().includes(inputSearch);
             });
             setNames(searchNames);
         } else {
@@ -30,6 +31,7 @@ const ListName = () => {
     return (
         <div className="name-container">
             <SearchBar search={searchInput} />
+            <Favorites />
             <HorizontalLine />
             <NamesList babyNames={names} />
             <HorizontalLine />
