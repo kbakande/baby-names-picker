@@ -3,6 +3,7 @@ import NamesList from './NamesList'
 import SearchBar from './SearchBar'
 import HorizontalLine from './HorizontalLine'
 import Favorites from './Favorites'
+// import searchInput from './SearchInput'
 import babyNames from '../babyNames.json';
 
 //  sort the array object list 
@@ -26,14 +27,31 @@ const ListName = () => {
         } else {
             setNames(babyNames);
         }
+    };
+
+    const FavouriteNames = (event) => {
+        const clickName = event.target.innerText;
+        const tempFavNames = [];
+
+        const newNames = names.filter((name) => {
+            if (name.name === clickName) {
+                tempFavNames.push(name);
+            } else {
+                return name.name != clickName;
+            }
+        })
+
+        setNames(newNames);
+        setFavNames([...favNames, ...tempFavNames]);
     }
 
     return (
-        <div className="name-container">
+
+        < div className="name-container">
             <SearchBar search={searchInput} />
             <Favorites favNames={favNames} />
             <HorizontalLine />
-            <NamesList babyNames={names} />
+            <NamesList babyNames={names} favFunc={FavouriteNames} />
             <HorizontalLine />
         </div >
     )
