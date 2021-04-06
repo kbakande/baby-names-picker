@@ -48,12 +48,11 @@
 
 .search-bar {
   margin-bottom: 0.6vh;
-  height: 5vh;
-  font-size: 3em;
+  font-size: 5vw;
 }
 .name-list {
   display: inline-block;
-  border-radius: 15%;
+  border-radius: 10%;
   margin: 0.2vh;
   padding: 1vh;
   font-size: large;
