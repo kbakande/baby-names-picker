@@ -20,7 +20,7 @@ const ListName = () => {
         const inputSearch = event.target.value.toLowerCase();
 
         if (inputSearch) {
-            const searchNames = babyNames.filter((babyName) => {
+            const searchNames = names.filter((babyName) => {
                 return babyName.name.toLowerCase().includes(inputSearch);
             });
             setNames(searchNames);
@@ -45,11 +45,27 @@ const ListName = () => {
         setFavNames([...favNames, ...tempFavNames]);
     }
 
+    const handleNamesReturn = event => {
+        const clickName = event.target.innerText;
+        const returnedName = [];
+
+        const favRemain = favNames.filter((name) => {
+            if (name.name === clickName) {
+                returnedName.push(name);
+            } else {
+                return name.name != clickName;
+            }
+        })
+
+        setFavNames(favRemain);
+        setNames([...names, ...returnedName]);
+    }
+
     return (
 
         < div className="name-container">
             <SearchBar search={searchInput} />
-            <Favorites favNames={favNames} />
+            <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
             <HorizontalLine />
             <NamesList babyNames={names} favFunc={FavouriteNames} />
             <HorizontalLine />
