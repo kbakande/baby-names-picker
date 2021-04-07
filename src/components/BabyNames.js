@@ -27,7 +27,11 @@ const ListName = () => {
             });
             setNames(searchNames);
         } else {
-            setNames(babyNames);
+
+            const namesMinusFav = babyNames.filter(babyName => {
+                return containsObject(babyName, favNames);
+            })
+            setNames(namesMinusFav);
         }
 
         // check if object is in the list
@@ -38,7 +42,6 @@ const ListName = () => {
                     return false;
                 }
             }
-
             return true;
         }
     };
