@@ -20,12 +20,26 @@ const ListName = () => {
         const inputSearch = event.target.value.toLowerCase();
 
         if (inputSearch) {
-            const searchNames = names.filter((babyName) => {
-                return babyName.name.toLowerCase().includes(inputSearch);
+            const searchNames = babyNames.filter(babyName => {
+                if (babyName.name.toLowerCase().includes(inputSearch)) {
+                    return containsObject(babyName, favNames)
+                }
             });
             setNames(searchNames);
         } else {
             setNames(babyNames);
+        }
+
+        // check if object is in the list
+        function containsObject(obj, list) {
+
+            for (let i = 0; i < list.length; i++) {
+                if (list[i] === obj) {
+                    return false;
+                }
+            }
+
+            return true;
         }
     };
 
