@@ -8,9 +8,11 @@ import babyNames from '../babyNames.json';
 
 // return the container for the names
 const ListName = () => {
-    // set state for baby names
+    const favNamesInit = []
+    // set state for baby & favourite names
     const [names, setNames] = useState(babyNames);
     const [favNames, setFavNames] = useState([]);
+
 
     // write logic for getting search names
     const searchInput = (event) => {
@@ -75,10 +77,14 @@ const ListName = () => {
         setNames([...names, ...returnedName]);
     }
 
+    const handleGirlsIcon = (event) => {
+        console.log(event.target);
+    }
+
     return (
 
         < div className="name-container">
-            <SearchBar search={searchInput} />
+            <SearchBar search={searchInput} girlHandler={handleGirlsIcon} />
             <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
             <HorizontalLine />
             <NamesList babyNames={names} favFunc={FavouriteNames} />
