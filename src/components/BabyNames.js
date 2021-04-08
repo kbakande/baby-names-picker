@@ -76,7 +76,7 @@ const ListName = () => {
     }
 
     const handleGirlsIcon = (event) => {
-        const iconList = event.target.parentNode.childNodes;
+        const iconList = event.currentTarget.parentNode.childNodes;
         iconList.forEach(icon => {
             if (icon.classList.contains(["girls"])) {
                 icon.classList.add("active")
@@ -94,7 +94,8 @@ const ListName = () => {
     }
 
     const handleBoysIcon = (event) => {
-        const iconList = event.target.parentNode.childNodes;
+        // console.log(event.currentTarget.parentNode.childNodes)
+        const iconList = event.currentTarget.parentNode.childNodes;
         iconList.forEach(icon => {
             if (icon.classList.contains(["boys"])) {
                 icon.classList.add("active")
@@ -111,9 +112,25 @@ const ListName = () => {
         setNames(boyNames);
     }
 
+    const handleAllIcon = (event) => {
+        const iconList = event.currentTarget.parentNode.childNodes;
+        iconList.forEach(icon => {
+            if (icon.classList.contains(["all"])) {
+                icon.classList.add("active")
+            } else {
+                icon.classList.remove("active")
+            }
+        })
+
+        const allNames = babyNames.filter(babyName => {
+            return containsObject(babyName, favNames)
+        })
+        setNames(allNames);
+    }
+
     return (
         < div className="name-container">
-            <SearchBar search={searchInput} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
+            <SearchBar search={searchInput} allHandler={handleAllIcon} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
             <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
             <HorizontalLine />
             <NamesList babyNames={names} favFunc={FavouriteNames} />
