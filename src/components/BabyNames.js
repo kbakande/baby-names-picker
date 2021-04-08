@@ -3,12 +3,8 @@ import NamesList from './NamesList'
 import SearchBar from './SearchBar'
 import HorizontalLine from './HorizontalLine'
 import Favorites from './Favorites'
-// import searchInput from './SearchInput'
-import { GiPlasticDuck } from "react-icons/gi";
 import babyNames from '../babyNames.json';
 
-//  sort the array object list 
-// babyNames.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
 // return the container for the names
 const ListName = () => {
