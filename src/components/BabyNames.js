@@ -4,6 +4,7 @@ import SearchBar from './SearchBar'
 import HorizontalLine from './HorizontalLine'
 import Favorites from './Favorites'
 // import searchInput from './SearchInput'
+import { GiPlasticDuck } from "react-icons/gi";
 import babyNames from '../babyNames.json';
 
 //  sort the array object list 
