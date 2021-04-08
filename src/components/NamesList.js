@@ -1,5 +1,4 @@
 
-import { FaHeart } from "react-icons/fa";
 
 const NamesList = props => {
     const babyNames = props.babyNames.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));;
