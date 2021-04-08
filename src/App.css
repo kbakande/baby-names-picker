@@ -34,6 +34,10 @@
   background-color: turquoise;
 }
 
+.all {
+  background-color: rgb(186, 187, 180);
+}
+
 hr {
   width: 60%;
   height: 1px;
@@ -47,11 +51,18 @@ hr {
   display: flex;
   flex-flow: row wrap;
   justify-content:left;
+  align-items: center;
+}
+
+
+.name-list {
+  display: inline-block;
 }
 
 .favourites-list {
   display: inline-block;
-  font-size: 2vw;
+  font-size: 1vw;
+  margin-right: 1vw;
 
 }
 
@@ -70,11 +81,10 @@ hr {
 .duck-icon {
   height: 3.2vw;
   width: 3vw;
-  background-color: rgb(186, 187, 180);
 }
 
 .active {
-  border-bottom: rgba(168, 12, 12, 0.925) solid 0.5px;
+  border-bottom: rgba(168, 12, 12, 0.925) solid 1px;
 }
 
 .search-container {
