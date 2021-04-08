@@ -66,25 +66,14 @@ hr {
 
 }
 
-.icon-list {
-  display: inline-block;
-  border-radius: 5%;
-  margin: 0.2vh;
-  padding: 1vh;
-  font-size: large;
-  background-color: rgb(234, 234, 238);
-  width: 2vw;
-  height: 2vw;
-  text-align: center;
-}
-
 .duck-icon {
   height: 3.2vw;
   width: 3vw;
+  border-radius: 0.2vw;
 }
 
 .active {
-  border-bottom: rgba(168, 12, 12, 0.925) solid 1px;
+  border-bottom: rgba(168, 12, 12, 0.925) solid 2px;
 }
 
 .search-container {
