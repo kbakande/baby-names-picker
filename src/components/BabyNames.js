@@ -76,6 +76,15 @@ const ListName = () => {
     }
 
     const handleGirlsIcon = (event) => {
+        const iconList = event.target.parentNode.childNodes;
+        iconList.forEach(icon => {
+            if (icon.classList.contains(["girls"])) {
+                icon.classList.add("active")
+            } else {
+                icon.classList.remove("active")
+            }
+        })
+
         const girlNames = babyNames.filter(babyName => {
             if (babyName["sex"] === "f") {
                 return containsObject(babyName, favNames)
@@ -85,9 +94,15 @@ const ListName = () => {
     }
 
     const handleBoysIcon = (event) => {
-        // event.target.classList.add("active")
-        console.log(event.target.parentNode.childNodes[0].classList.contains("all"))
-        // event.target.setAttribute("class", "duck-icon boys active")
+        const iconList = event.target.parentNode.childNodes;
+        iconList.forEach(icon => {
+            if (icon.classList.contains(["boys"])) {
+                icon.classList.add("active")
+            } else {
+                icon.classList.remove("active")
+            }
+        })
+
         const boyNames = babyNames.filter(babyName => {
             if (babyName["sex"] === "m") {
                 return containsObject(babyName, favNames)
