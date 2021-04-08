@@ -8,11 +8,20 @@ import babyNames from '../babyNames.json';
 
 // return the container for the names
 const ListName = () => {
-    const favNamesInit = []
     // set state for baby & favourite names
     const [names, setNames] = useState(babyNames);
     const [favNames, setFavNames] = useState([]);
 
+    // check if object is in the list
+    function containsObject(obj, list) {
+
+        for (let i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // write logic for getting search names
     const searchInput = (event) => {
@@ -31,17 +40,6 @@ const ListName = () => {
                 return containsObject(babyName, favNames);
             })
             setNames(namesMinusFav);
-        }
-
-        // check if object is in the list
-        function containsObject(obj, list) {
-
-            for (let i = 0; i < list.length; i++) {
-                if (list[i] === obj) {
-                    return false;
-                }
-            }
-            return true;
         }
     };
 
@@ -78,13 +76,29 @@ const ListName = () => {
     }
 
     const handleGirlsIcon = (event) => {
-        console.log(event.target);
+        const girlNames = babyNames.filter(babyName => {
+            if (babyName["sex"] === "f") {
+                return containsObject(babyName, favNames)
+            }
+        })
+        setNames(girlNames);
+    }
+
+    const handleBoysIcon = (event) => {
+        // event.target.classList.add("active")
+        console.log(event.target.parentNode.childNodes[0].classList.contains("all"))
+        // event.target.setAttribute("class", "duck-icon boys active")
+        const boyNames = babyNames.filter(babyName => {
+            if (babyName["sex"] === "m") {
+                return containsObject(babyName, favNames)
+            }
+        })
+        setNames(boyNames);
     }
 
     return (
-
         < div className="name-container">
-            <SearchBar search={searchInput} girlHandler={handleGirlsIcon} />
+            <SearchBar search={searchInput} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
             <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
             <HorizontalLine />
             <NamesList babyNames={names} favFunc={FavouriteNames} />
