@@ -1,5 +1,4 @@
 import './App.css';
-import 'font-awesome/css/font-awesome.min.css';
 import { ListName } from './components/BabyNames'
 
 function App() {
