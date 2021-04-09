@@ -28,5 +28,4 @@ const NamesList = props => {
     )
 }
 
-
 export default NamesList
