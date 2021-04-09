@@ -5,7 +5,6 @@ import HorizontalLine from './HorizontalLine'
 import Favorites from './Favorites'
 import babyNames from '../babyNames.json';
 
-
 // return the container for the names
 const ListName = () => {
     // set state for baby & favourite names
@@ -77,53 +76,82 @@ const ListName = () => {
 
     const handleGirlsIcon = (event) => {
         const iconList = event.currentTarget.parentNode.childNodes;
+        let searchInput = "";
         iconList.forEach(icon => {
             if (icon.classList.contains(["girls"])) {
                 icon.classList.add("active")
+            } else if (icon.classList.contains(["search-bar"])) {
+                searchInput = icon.value.toLowerCase();
             } else {
                 icon.classList.remove("active")
             }
         })
 
         const girlNames = babyNames.filter(babyName => {
-            if (babyName["sex"] === "f") {
+            if ((searchInput === "") && (babyName["sex"] === "f")) {
                 return containsObject(babyName, favNames)
             }
+            else {
+                if ((babyName["sex"] === "f") && (babyName["name"].toLowerCase().includes(searchInput))) {
+                    return containsObject(babyName, favNames)
+                }
+            }
+
         })
         setNames(girlNames);
     }
 
+
     const handleBoysIcon = (event) => {
-        // console.log(event.currentTarget.parentNode.childNodes)
         const iconList = event.currentTarget.parentNode.childNodes;
+        let searchInput = "";
         iconList.forEach(icon => {
             if (icon.classList.contains(["boys"])) {
                 icon.classList.add("active")
+            } else if (icon.classList.contains(["search-bar"])) {
+                searchInput = icon.value.toLowerCase();
             } else {
                 icon.classList.remove("active")
             }
         })
 
         const boyNames = babyNames.filter(babyName => {
-            if (babyName["sex"] === "m") {
+            if ((searchInput === "") && (babyName["sex"] === "m")) {
                 return containsObject(babyName, favNames)
             }
+            else {
+                if ((babyName["sex"] === "m") && (babyName["name"].toLowerCase().includes(searchInput))) {
+                    return containsObject(babyName, favNames)
+                }
+            }
+
         })
         setNames(boyNames);
     }
 
+
     const handleAllIcon = (event) => {
         const iconList = event.currentTarget.parentNode.childNodes;
+        let searchInput = "";
         iconList.forEach(icon => {
             if (icon.classList.contains(["all"])) {
                 icon.classList.add("active")
+            } else if (icon.classList.contains(["search-bar"])) {
+                searchInput = icon.value.toLowerCase();
             } else {
                 icon.classList.remove("active")
             }
         })
 
         const allNames = babyNames.filter(babyName => {
-            return containsObject(babyName, favNames)
+            if (searchInput === "") {
+                return containsObject(babyName, favNames)
+            }
+            else {
+                if (babyName["name"].toLowerCase().includes(searchInput)) {
+                    return containsObject(babyName, favNames)
+                }
+            }
         })
         setNames(allNames);
     }
@@ -139,6 +167,7 @@ const ListName = () => {
         })
 
         const allNames = babyNames.filter(babyName => {
+
             return containsObject(babyName, favNames)
         })
         setNames(allNames);
