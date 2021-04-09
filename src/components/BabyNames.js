@@ -128,9 +128,25 @@ const ListName = () => {
         setNames(allNames);
     }
 
+    const handleShuffleIcon = (event) => {
+        const iconList = event.currentTarget.parentNode.childNodes;
+        iconList.forEach(icon => {
+            if (icon.classList.contains("shuffle")) {
+                icon.classList.add("active")
+            } else {
+                icon.classList.remove("active")
+            }
+        })
+
+        const allNames = babyNames.filter(babyName => {
+            return containsObject(babyName, favNames)
+        })
+        setNames(allNames);
+    }
+
     return (
         < div className="name-container">
-            <SearchBar search={searchInput} allHandler={handleAllIcon} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
+            <SearchBar search={searchInput} shuffleHandler={handleShuffleIcon} allHandler={handleAllIcon} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
             <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
             <HorizontalLine />
             <NamesList babyNames={names} favFunc={FavouriteNames} />
