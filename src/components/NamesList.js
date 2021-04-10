@@ -10,15 +10,10 @@ const NamesList = props => {
             if (babyName.sex === "m") {
                 return (
                     <p className="name-list boys" key={index} onClick={props.favFunc}> {babyName.name}  </p>
-
-                    // <div> <FaHeart /> {babyName.name}</div>
                 )
             } else {
                 return (
-                    <p className="name-list girls" key={index} onClick={props.favFunc}> {babyName.name}</p>
-
-                    // <p className="name-list girls" key={index} onClick={props.favFunc}> {babyName.name}</p>
-                )
+                    <p className="name-list girls" key={index} onClick={props.favFunc}> {babyName.name}</p>)
             }
         })
         // }
