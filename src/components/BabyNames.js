@@ -4,6 +4,7 @@ import SearchBar from './SearchBar'
 import HorizontalLine from './HorizontalLine'
 import Favorites from './Favorites'
 import babyNames from '../babyNames.json';
+import Header from './Header';
 
 // return the container for the names
 const ListName = () => {
@@ -174,13 +175,16 @@ const ListName = () => {
     }
 
     return (
-        < div className="name-container">
-            <SearchBar search={searchInput} shuffleHandler={handleShuffleIcon} allHandler={handleAllIcon} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
-            <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
-            <HorizontalLine />
-            <NamesList babyNames={names} favFunc={FavouriteNames} />
-            <HorizontalLine />
-        </div >
+        <div>
+            <Header />
+            < div className="name-container">
+                <SearchBar search={searchInput} shuffleHandler={handleShuffleIcon} allHandler={handleAllIcon} girlHandler={handleGirlsIcon} boyHandler={handleBoysIcon} />
+                <Favorites favNames={favNames} handleNamesReturn={handleNamesReturn} />
+                <HorizontalLine />
+                <NamesList babyNames={names} favFunc={FavouriteNames} />
+                <HorizontalLine />
+            </div >
+        </div>
     )
 }
 
